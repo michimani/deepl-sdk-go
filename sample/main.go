@@ -19,7 +19,7 @@ func main() {
 	}
 	params := &types.TranslateTextParams{
 		AuthKey:    client.AuthenticationKey,
-		TargetLang: types.EN,
+		TargetLang: types.TargetLangEN,
 		Text:       text,
 	}
 

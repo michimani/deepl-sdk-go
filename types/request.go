@@ -9,8 +9,8 @@ import (
 type TranslateTextParams struct {
 	AuthKey            string
 	Text               []string
-	SourceLang         LangCode
-	TargetLang         LangCode
+	SourceLang         SourceLangCode
+	TargetLang         TargetLangCode
 	SplitSentences     interface{}
 	PreserveFormatting interface{}
 	Formality          string

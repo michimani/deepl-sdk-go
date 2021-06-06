@@ -1,6 +1,8 @@
 package types
 
 type LangCode string
+type TargetLangCode LangCode
+type SourceLangCode LangCode
 
 const (
 	BG   LangCode = "BG"
@@ -31,6 +33,66 @@ const (
 	SL   LangCode = "SL"
 	SV   LangCode = "SV"
 	ZH   LangCode = "ZH"
+)
+
+// Language codes that can be specified as target_lang
+const (
+	TargetLangBG TargetLangCode = TargetLangCode(BG)
+	TargetLangCS TargetLangCode = TargetLangCode(CS)
+	TargetLangDA TargetLangCode = TargetLangCode(DA)
+	TargetLangDE TargetLangCode = TargetLangCode(DE)
+	TargetLangEL TargetLangCode = TargetLangCode(EL)
+	TargetLangEN TargetLangCode = TargetLangCode(EN)
+	TargetLangES TargetLangCode = TargetLangCode(ES)
+	TargetLangET TargetLangCode = TargetLangCode(ET)
+	TargetLangFI TargetLangCode = TargetLangCode(FI)
+	TargetLangFR TargetLangCode = TargetLangCode(FR)
+	TargetLangHU TargetLangCode = TargetLangCode(HU)
+	TargetLangIT TargetLangCode = TargetLangCode(IT)
+	TargetLangJA TargetLangCode = TargetLangCode(JA)
+	TargetLangLT TargetLangCode = TargetLangCode(LT)
+	TargetLangLV TargetLangCode = TargetLangCode(LV)
+	TargetLangNL TargetLangCode = TargetLangCode(NL)
+	TargetLangPL TargetLangCode = TargetLangCode(PL)
+	TargetLangPT TargetLangCode = TargetLangCode(PT)
+	TargetLangRO TargetLangCode = TargetLangCode(RO)
+	TargetLangRU TargetLangCode = TargetLangCode(RU)
+	TargetLangSK TargetLangCode = TargetLangCode(SK)
+	TargetLangSL TargetLangCode = TargetLangCode(SL)
+	TargetLangSV TargetLangCode = TargetLangCode(SV)
+	TargetLangZH TargetLangCode = TargetLangCode(ZH)
+)
+
+// Language codes that can be specified as source_lang
+const (
+	SourceLangBG   SourceLangCode = SourceLangCode(BG)
+	SourceLangCS   SourceLangCode = SourceLangCode(CS)
+	SourceLangDA   SourceLangCode = SourceLangCode(DA)
+	SourceLangDE   SourceLangCode = SourceLangCode(DE)
+	SourceLangEL   SourceLangCode = SourceLangCode(EL)
+	SourceLangENGB SourceLangCode = SourceLangCode(ENGB)
+	SourceLangENUS SourceLangCode = SourceLangCode(ENUS)
+	SourceLangEN   SourceLangCode = SourceLangCode(EN)
+	SourceLangES   SourceLangCode = SourceLangCode(ES)
+	SourceLangET   SourceLangCode = SourceLangCode(ET)
+	SourceLangFI   SourceLangCode = SourceLangCode(FI)
+	SourceLangFR   SourceLangCode = SourceLangCode(FR)
+	SourceLangHU   SourceLangCode = SourceLangCode(HU)
+	SourceLangIT   SourceLangCode = SourceLangCode(IT)
+	SourceLangJA   SourceLangCode = SourceLangCode(JA)
+	SourceLangLT   SourceLangCode = SourceLangCode(LT)
+	SourceLangLV   SourceLangCode = SourceLangCode(LV)
+	SourceLangNL   SourceLangCode = SourceLangCode(NL)
+	SourceLangPL   SourceLangCode = SourceLangCode(PL)
+	SourceLangPTPT SourceLangCode = SourceLangCode(PTPT)
+	SourceLangPTBR SourceLangCode = SourceLangCode(PTBR)
+	SourceLangPT   SourceLangCode = SourceLangCode(PT)
+	SourceLangRO   SourceLangCode = SourceLangCode(RO)
+	SourceLangRU   SourceLangCode = SourceLangCode(RU)
+	SourceLangSK   SourceLangCode = SourceLangCode(SK)
+	SourceLangSL   SourceLangCode = SourceLangCode(SL)
+	SourceLangSV   SourceLangCode = SourceLangCode(SV)
+	SourceLangZH   SourceLangCode = SourceLangCode(ZH)
 )
 
 var langMap map[LangCode]string = map[LangCode]string{
