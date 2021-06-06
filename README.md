@@ -9,14 +9,13 @@ This is a an unofficial Go SDK for using the DeepL API.
 func main() {
 	authnKey := os.Getenv("DEEPL_AUTHN_KEY")
 
-	client := deepl.NewClient(authnKey)
+	client := deepl.NewClient(authnKey, true)
 
 	text := []string{
 		"こんにちは",
 		"これはサンプルテキストです。",
 	}
 	params := &types.TranslateTextParams{
-		AuthKey:    client.AuthenticationKey,
 		TargetLang: types.EN,
 		Text:       text,
 	}
