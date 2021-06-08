@@ -2,7 +2,8 @@ package deepl
 
 import (
 	"context"
-	"deepl-sdk-go/types"
+
+	"github.com/michimani/deepl-sdk-go/types"
 )
 
 // TranslateText calls the translate text API of the Deepl API.

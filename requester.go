@@ -1,10 +1,11 @@
 package deepl
 
 import (
-	"deepl-sdk-go/types"
 	"io"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/michimani/deepl-sdk-go/types"
 )
 
 const contentType string = "application/x-www-form-urlencoded"

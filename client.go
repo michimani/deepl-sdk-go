@@ -1,8 +1,9 @@
 package deepl
 
 import (
-	"deepl-sdk-go/types"
 	"fmt"
+
+	"github.com/michimani/deepl-sdk-go/types"
 )
 
 type Client struct {

@@ -2,10 +2,11 @@ package main
 
 import (
 	"context"
-	"deepl-sdk-go"
-	"deepl-sdk-go/types"
 	"fmt"
 	"os"
+
+	"github.com/michimani/deepl-sdk-go/deepl"
+	"github.com/michimani/deepl-sdk-go/types"
 )
 
 func main() {
