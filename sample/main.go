@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/michimani/deepl-sdk-go/deepl"
+	"github.com/michimani/deepl-sdk-go"
 	"github.com/michimani/deepl-sdk-go/types"
 )
 
