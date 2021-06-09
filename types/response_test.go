@@ -125,11 +125,12 @@ func TestUnmarshal_Error(t *testing.T) {
 	}{
 		{
 			name:       "error response",
-			statusCode: http.StatusInternalServerError,
+			statusCode: int(DeeplAPIError500),
 			body:       []byte(`{"message":"Error message."}`),
 			wantError:  false,
 			expect: &ErrorResponse{
-				Message: "Error message.",
+				Message:    "Error message.",
+				StatusCode: DeeplAPIError500,
 			},
 		},
 		{

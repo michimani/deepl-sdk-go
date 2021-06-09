@@ -20,7 +20,8 @@ type TranslateTextResponse struct {
 }
 
 type ErrorResponse struct {
-	Message string `json:"message"`
+	Message    string `json:"message"`
+	StatusCode DeeplAPIErrorCode
 }
 
 type RawResponse struct {
@@ -36,6 +37,7 @@ func (r *RawResponse) Unmarshal(i interface{}) (*ErrorResponse, error) {
 		if err != nil {
 			return nil, err
 		}
+		errRes.StatusCode = DeeplAPIErrorCode(r.StatusCode)
 		return &errRes, nil
 	}
 
