@@ -19,6 +19,32 @@ type TranslateTextResponse struct {
 	Translations []TranslateTextResult
 }
 
+type LanguagesResponse interface {
+	Count() int
+}
+
+type TargetLanguagesResponse []TargetLanguages
+
+func (t TargetLanguagesResponse) Count() int {
+	return len(t)
+}
+
+type SourceLanguagesResponse []SourceLanguages
+
+func (t SourceLanguagesResponse) Count() int {
+	return len(t)
+}
+
+type TargetLanguages struct {
+	Language TargetLangCode `json:"language"`
+	Name     string         `json:"name"`
+}
+
+type SourceLanguages struct {
+	Language SourceLangCode `json:"language"`
+	Name     string         `json:"name"`
+}
+
 type ErrorResponse struct {
 	Message    string `json:"message"`
 	StatusCode DeeplAPIErrorCode

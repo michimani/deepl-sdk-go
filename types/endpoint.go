@@ -6,4 +6,5 @@ const (
 	APIVersion            string = "v2"
 	EndpointUsage         string = "usage"
 	EndpointTranslateText string = "translate"
+	EndpointLanguages     string = "languages"
 )

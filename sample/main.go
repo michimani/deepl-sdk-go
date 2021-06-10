@@ -16,6 +16,7 @@ func main() {
 
 	usage(client)
 	translateText(client)
+	targetLanguages(client)
 }
 
 func usage(c *deepl.Client) {
@@ -57,4 +58,22 @@ func translateText(c *deepl.Client) {
 	for i := range res.Translations {
 		fmt.Printf("%s -> %s\n", text[i], res.Translations[i].Text)
 	}
+}
+
+func targetLanguages(c *deepl.Client) {
+	params := &types.LanguagesParams{
+		LangType: types.LangTypeTarget,
+	}
+
+	res, errRes, err := c.TargetLanguages(context.TODO(), params)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	if errRes != nil {
+		fmt.Println("ErrorResponse", errRes.Message)
+	}
+
+	fmt.Printf("%#v\n", res)
 }

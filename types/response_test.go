@@ -115,6 +115,58 @@ func TestUnmarshal_TranslateText(t *testing.T) {
 	}
 }
 
+func TestUnmarshal_Languages(t *testing.T) {
+	cases := []struct {
+		name       string
+		statusCode int
+		body       []byte
+		wantError  bool
+		expect     UsageResponse
+	}{
+		{
+			name:       "usage response",
+			statusCode: http.StatusOK,
+			body:       []byte(`{"character_count":100,"character_limit":99999}`),
+			wantError:  false,
+			expect: UsageResponse{
+				CharacterCount: 100,
+				CharacterLimit: 99999,
+			},
+		},
+		{
+			name:       "error (invalid body)",
+			statusCode: 0,
+			body:       []byte(`not json string`),
+			wantError:  true,
+			expect:     UsageResponse{},
+		},
+	}
+
+	for _, c := range cases {
+		t.Run(c.name, func(t *testing.T) {
+			raw := RawResponse{
+				StatusCode: c.statusCode,
+				Body:       c.body,
+			}
+
+			var res UsageResponse
+			errRes, err := raw.Unmarshal(&res)
+
+			if c.wantError {
+				assert.Error(t, err)
+				return
+			}
+
+			if c.statusCode != http.StatusOK {
+				assert.Equal(t, c.expect, errRes)
+				return
+			}
+
+			assert.Equal(t, c.expect, res)
+		})
+	}
+}
+
 func TestUnmarshal_Error(t *testing.T) {
 	cases := []struct {
 		name       string
