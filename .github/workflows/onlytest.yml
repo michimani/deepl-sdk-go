@@ -1,9 +1,5 @@
 name: onlytest
-on:
-  push:
-    branches:
-      - main
-      - 'issue/*'
+on: pull_request
 
 jobs:
   test:
