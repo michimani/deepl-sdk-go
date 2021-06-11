@@ -1,8 +1,5 @@
 name: onlytest
-on:
-  push:
-    branches:
-      - "*"
+on: pull_request
 
 jobs:
   test:
