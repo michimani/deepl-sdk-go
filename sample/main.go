@@ -20,6 +20,7 @@ func main() {
 }
 
 func usage(c *deepl.Client) {
+	fmt.Println("UsageAPI sample")
 	params := &types.UsageParams{}
 	res, errRes, err := c.Usage(context.TODO(), params)
 
@@ -36,6 +37,7 @@ func usage(c *deepl.Client) {
 }
 
 func translateText(c *deepl.Client) {
+	fmt.Println("TranslateTextAPI sample (JA to EN)")
 	text := []string{
 		"こんにちは",
 		"これはサンプルテキストです。",
@@ -61,11 +63,8 @@ func translateText(c *deepl.Client) {
 }
 
 func targetLanguages(c *deepl.Client) {
-	params := &types.LanguagesParams{
-		LangType: types.LangTypeTarget,
-	}
-
-	res, errRes, err := c.TargetLanguages(context.TODO(), params)
+	fmt.Println("LanguagesAPI sample (get Target Languages)")
+	res, errRes, err := c.TargetLanguages(context.TODO())
 
 	if err != nil {
 		fmt.Println(err)
@@ -75,5 +74,7 @@ func targetLanguages(c *deepl.Client) {
 		fmt.Println("ErrorResponse", errRes.Message)
 	}
 
-	fmt.Printf("%#v\n", res)
+	for _, tl := range *res {
+		fmt.Printf("code:%s name:%s\n", tl.Language, tl.Name)
+	}
 }

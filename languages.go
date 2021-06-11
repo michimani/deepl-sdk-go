@@ -7,14 +7,16 @@ import (
 )
 
 // Languages calls the languages API with type "target" of the Deepl API.
-func (c *Client) TargetLanguages(ctx context.Context, params *types.LanguagesParams) (*types.TargetLanguagesResponse, *types.ErrorResponse, error) {
+func (c *Client) TargetLanguages(ctx context.Context) (*types.TargetLanguagesResponse, *types.ErrorResponse, error) {
+	params := &types.LanguagesParams{LangType: types.LangTypeTarget}
 	res := types.TargetLanguagesResponse{}
 	errRes, err := languages(ctx, c, params, &res)
 	return &res, errRes, err
 }
 
 // Languages calls the languages API with type "source" of the Deepl API.
-func (c *Client) SourceLanguages(ctx context.Context, params *types.LanguagesParams) (*types.SourceLanguagesResponse, *types.ErrorResponse, error) {
+func (c *Client) SourceLanguages(ctx context.Context) (*types.SourceLanguagesResponse, *types.ErrorResponse, error) {
+	params := &types.LanguagesParams{LangType: types.LangTypeSource}
 	res := types.SourceLanguagesResponse{}
 	errRes, err := languages(ctx, c, params, &res)
 	return &res, errRes, err
