@@ -2,7 +2,8 @@ name: onlytest
 on:
   push:
     branches:
-      - '*'
+      - main
+      - 'issue/*'
 
 jobs:
   test:
