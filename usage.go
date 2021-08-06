@@ -3,11 +3,12 @@ package deepl
 import (
 	"context"
 
+	"github.com/michimani/deepl-sdk-go/params"
 	"github.com/michimani/deepl-sdk-go/types"
 )
 
 // Usage calls the translate text API of the Deepl API.
-func (c *Client) Usage(ctx context.Context, params *types.UsageParams) (*types.UsageResponse, *types.ErrorResponse, error) {
+func (c *Client) Usage(ctx context.Context, params *params.UsageParams) (*types.UsageResponse, *types.ErrorResponse, error) {
 	var res types.UsageResponse
 
 	endpoint := c.EndpointBase + types.EndpointUsage

@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/michimani/deepl-sdk-go"
+	"github.com/michimani/deepl-sdk-go/params"
 	"github.com/michimani/deepl-sdk-go/types"
 )
 
@@ -21,7 +22,7 @@ func main() {
 
 func usage(c *deepl.Client) {
 	fmt.Println("UsageAPI sample")
-	params := &types.UsageParams{}
+	params := &params.UsageParams{}
 	res, errRes, err := c.Usage(context.TODO(), params)
 
 	if err != nil {
@@ -42,7 +43,7 @@ func translateText(c *deepl.Client) {
 		"こんにちは",
 		"これはサンプルテキストです。",
 	}
-	params := &types.TranslateTextParams{
+	params := &params.TranslateTextParams{
 		TargetLang: types.TargetLangEN,
 		Text:       text,
 	}
