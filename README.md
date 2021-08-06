@@ -20,6 +20,7 @@ import (
 	"os"
 
 	"github.com/michimani/deepl-sdk-go"
+	"github.com/michimani/deepl-sdk-go/params"
 	"github.com/michimani/deepl-sdk-go/types"
 )
 
@@ -33,7 +34,7 @@ func main() {
 		"こんにちは",
 		"これはサンプルテキストです。",
 	}
-	params := &types.TranslateTextParams{
+	params := &params.TranslateTextParams{
 		TargetLang: types.TargetLangEN,
 		Text:       text,
 	}

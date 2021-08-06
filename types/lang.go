@@ -1,8 +1,14 @@
 package types
 
+type LangType string
 type LangCode string
 type TargetLangCode LangCode
 type SourceLangCode LangCode
+
+const (
+	LangTypeTarget LangType = "target"
+	LangTypeSource LangType = "source"
+)
 
 const (
 	BG   LangCode = "BG"
