@@ -44,9 +44,10 @@ func translateText(c *deepl.Client) {
 		"これは\nサンプルテキストです。",
 	}
 	params := &params.TranslateTextParams{
-		TargetLang:     types.TargetLangEN,
-		Text:           text,
-		SplitSentences: types.SplitSentencesNoSplit,
+		TargetLang:         types.TargetLangEN,
+		Text:               text,
+		SplitSentences:     types.SplitSentencesNoSplit,
+		PreserveFormatting: types.PreserveFormattingDisabled,
 	}
 
 	res, errRes, err := c.TranslateText(context.TODO(), params)

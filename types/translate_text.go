@@ -20,3 +20,20 @@ func (s SplitSentences) Valid() bool {
 
 	return true
 }
+
+type PreserveFormatting string
+
+const (
+	// default
+	PreserveFormattingDisabled = "0"
+
+	PreserveFormattingEnabled = "1"
+)
+
+func (p PreserveFormatting) Valid() bool {
+	if p != PreserveFormattingDisabled && p != PreserveFormattingEnabled {
+		return false
+	}
+
+	return true
+}

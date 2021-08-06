@@ -15,7 +15,7 @@ type TranslateTextParams struct {
 	SourceLang         types.SourceLangCode
 	TargetLang         types.TargetLangCode
 	SplitSentences     types.SplitSentences
-	PreserveFormatting interface{}
+	PreserveFormatting types.PreserveFormatting
 	Formality          string
 }
 
@@ -42,6 +42,10 @@ func (p *TranslateTextParams) Body() (*strings.Reader, error) {
 
 	if p.SplitSentences.Valid() {
 		uv.Add("split_sentences", string(p.SplitSentences))
+	}
+
+	if p.PreserveFormatting.Valid() {
+		uv.Add("preserve_formatting", string(p.PreserveFormatting))
 	}
 
 	return strings.NewReader(uv.Encode()), nil
