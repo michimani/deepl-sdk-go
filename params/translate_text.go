@@ -16,7 +16,7 @@ type TranslateTextParams struct {
 	TargetLang         types.TargetLangCode
 	SplitSentences     types.SplitSentences
 	PreserveFormatting types.PreserveFormatting
-	Formality          string
+	Formality          types.Formality
 }
 
 func (p *TranslateTextParams) SetAuthnKey(k string) {
@@ -46,6 +46,10 @@ func (p *TranslateTextParams) Body() (*strings.Reader, error) {
 
 	if p.PreserveFormatting.Valid() {
 		uv.Add("preserve_formatting", string(p.PreserveFormatting))
+	}
+
+	if p.Formality.Valid(p.TargetLang) {
+		uv.Add("formality", string(p.Formality))
 	}
 
 	return strings.NewReader(uv.Encode()), nil
