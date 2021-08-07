@@ -41,11 +41,13 @@ func translateText(c *deepl.Client) {
 	fmt.Println("TranslateTextAPI sample (JA to EN)")
 	text := []string{
 		"こんにちは",
-		"これはサンプルテキストです。",
+		"これは\nサンプルテキストです。",
 	}
 	params := &params.TranslateTextParams{
-		TargetLang: types.TargetLangEN,
-		Text:       text,
+		TargetLang:         types.TargetLangEN,
+		Text:               text,
+		SplitSentences:     types.SplitSentencesNoSplit,
+		PreserveFormatting: types.PreserveFormattingDisabled,
 	}
 
 	res, errRes, err := c.TranslateText(context.TODO(), params)
