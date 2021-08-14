@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"os"
 
 	"github.com/michimani/deepl-sdk-go"
 	"github.com/michimani/deepl-sdk-go/params"
@@ -11,9 +10,11 @@ import (
 )
 
 func main() {
-	authnKey := os.Getenv("DEEPL_AUTHN_KEY")
-
-	client := deepl.NewClient(authnKey, true)
+	client, err := deepl.NewClient()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
 	usage(client)
 	translateText(client)
