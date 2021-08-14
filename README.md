@@ -25,10 +25,11 @@ import (
 )
 
 func main() {
-	authnKey := os.Getenv("DEEPL_AUTHN_KEY")
-  isPro := true
-
-	client := deepl.NewClient(authnKey, isPro)
+	client, err := deepl.NewClient()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
 	text := []string{
 		"こんにちは",
@@ -56,7 +57,7 @@ func main() {
 ```
 
 ```bash
-$ DEEPL_AUTHN_KEY="your-authn-key" go run main.go
+$ DEEPL_API_AUTHN_KEY="your-authn-key" DEEPL_API_PLAN="free" go run main.go
 
 こんにちは -> hello
 これはサンプルテキストです。 -> This is a sample text.
