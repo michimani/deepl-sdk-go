@@ -1,7 +1,7 @@
 deepl-sdk-go
 ===
 
-This is a an unofficial Go SDK for using the DeepL API.
+This is an unofficial Go SDK for using the DeepL API.
 
 # Usage
 
